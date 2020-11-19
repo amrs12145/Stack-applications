@@ -7,10 +7,10 @@ class Node
 {
     int data;
     Node next;
-    public Node(int d)
+    public Node( int data, Node next )
     {
-        data = d;
-        next = null;
+        this.data = data;
+        this.next = next;
     }
 }
         
@@ -19,11 +19,25 @@ public class Stack
 {
     Node top = null;
     
-    void push(int num)
+    void push(int data)
     {
-        Node n = new Node(num);
+        Node n = new Node( data, top );
+        
         top = n;
-        n.next = top;
+    }
+    int pop()
+    {
+        if ( !isEmpty() )
+        {
+            int res = top.data;
+            top = top.next;
+            return res;
+        }
+        return 0;
+    }
+    boolean isEmpty()
+    {
+        return top==null;
     }
     
     
