@@ -15,7 +15,7 @@ public class Main {
         obj.push(5);
         obj.push(6);
         obj.pop();
-        //System.out.println( obj.search(2) );
+        System.out.println( "max is " + obj.max() + "\nmin is " + obj.min() );
         obj.display();
                 
     }

@@ -91,7 +91,7 @@ boolean search(int data)
         {
             tmp.push(pop() );
         }
-       }
+    }
 
     while( !tmp.isEmpty()  )
     {
@@ -101,6 +101,51 @@ boolean search(int data)
     return found;
 }
 
+    int max()
+    {
+        tmp = new Stack();
+        int d;
+        int max = pop();
+        tmp.push( max );
+        //push( max );
+        
+        while( !isEmpty() )
+        {
+            d = pop();
+            tmp.push( d );
+
+            if( d > max )
+                max = d;
+
+        }
+        while( !tmp.isEmpty() )
+            push( tmp.pop() );
+        return max;
+    }
+    
+    int min()
+    {
+        tmp = new Stack();
+        int d;
+        int min = pop();
+        //tmp.push( min );
+        push( min );
+        
+        while( !isEmpty() )
+        {
+            d = pop();
+            tmp.push( d );
+            
+            if ( d < min )
+                min = d;   
+        }
+        
+        while( !tmp.isEmpty() )
+            push( tmp.pop() );
+        
+        
+        return min;
+    }
     
 
     
