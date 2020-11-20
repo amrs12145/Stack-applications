@@ -18,6 +18,7 @@ class Node
 public class Stack
 {
     Node top = null;
+    Stack tmp;
     
     void push(int data)
     {
@@ -47,27 +48,59 @@ int peek()
 return top.data;
 }
 
-Stack tmp = new Stack();
 
-boollean(int data)
-{
-while( !isEmpty() )
- {
-  if ( top.data == data )
-     return true;
-  else
-  {
-    tmp.push( pop() );
-  }
- }
 
-while( tmp.top != null  )
+
+void display()
 {
-push( tmp.pop() );
+    tmp = new Stack();
+    System.out.print( "Displaying the Stack...\n( " );
+    
+    while( !isEmpty() )
+    {
+        int d = pop();
+        String h= isEmpty()? "":" , ";
+        System.out.print( d +  h );
+        tmp.push( d );
+    }
+    
+    while( !tmp.isEmpty() )
+    {
+        push( tmp.pop() );
+    }
+    
+    
+    System.out.println( ")\nDone." );
 }
 
-return false;
+
+
+boolean search(int data)
+{
+    tmp = new Stack();
+    boolean found = false;
+    
+    while( !isEmpty() )
+    {
+        if ( top.data == data )
+        {
+            found = true;
+            break;
+        }
+        else
+        {
+            tmp.push(pop() );
+        }
+       }
+
+    while( !tmp.isEmpty()  )
+    {
+        push( tmp.pop() );
+    }
+
+    return found;
 }
+
     
 
     

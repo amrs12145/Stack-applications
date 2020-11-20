@@ -11,9 +11,12 @@ public class Main {
         obj.push(1);
         obj.push(2);
         obj.push(3);
+        obj.push(4);
+        obj.push(5);
+        obj.push(6);
         obj.pop();
-        System.out.println( obj.pop() );
-                
+        //System.out.println( obj.search(2) );
+        obj.display();
                 
     }
     
