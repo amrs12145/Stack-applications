@@ -3,38 +3,38 @@ package javaapplication2;
 
 
 
-class Node
+class Node<T>
 {
-    int data;
+    T data;
     Node next;
-    public Node( int data, Node next )
+    public Node( T data, Node next )
     {
         this.data = data;
         this.next = next;
     }
 }
+      
         
-        
-public class Stack
+public class Stack<T>
 {
     Node top = null;
     Stack tmp;
     
-    void push(int data)
+    void push(T data)
     {
         Node n = new Node( data, top );
         
         top = n;
     }
-    int pop()
+    T pop()
     {
         if ( !isEmpty() )
         {
-            int res = top.data;
+            T res = (T) top.data;
             top = top.next;
             return res;
         }
-        return 0;
+        return null;
     }
     boolean isEmpty()
     {
@@ -43,9 +43,9 @@ public class Stack
     // By mobile
 
 
-int peek()
+Object peek()
 {
-return top.data;
+    return top.data;
 }
 
 
@@ -58,7 +58,7 @@ void display()
     
     while( !isEmpty() )
     {
-        int d = pop();
+        T d = pop();
         String h= isEmpty()? "":" , ";
         System.out.print( d +  h );
         tmp.push( d );
@@ -66,7 +66,7 @@ void display()
     
     while( !tmp.isEmpty() )
     {
-        push( tmp.pop() );
+        push( (T)tmp.peek() );
     }
     
     
@@ -75,7 +75,7 @@ void display()
 
 
 
-boolean search(int data)
+boolean search(T data)
 {
     tmp = new Stack();
     boolean found = false;
@@ -95,17 +95,17 @@ boolean search(int data)
 
     while( !tmp.isEmpty()  )
     {
-        push( tmp.pop() );
+        push( (T)tmp.pop() );
     }
 
     return found;
 }
-
-    int max()
+/*
+    T max()
     {
         tmp = new Stack();
-        int d;
-        int max = pop();
+        T d;
+        T max = pop();
         tmp.push( max );
         //push( max );
         
@@ -114,20 +114,20 @@ boolean search(int data)
             d = pop();
             tmp.push( d );
 
-            if( d > max )
+            if( d.compareTo > max )
                 max = d;
 
         }
         while( !tmp.isEmpty() )
-            push( tmp.pop() );
+            push( (T)tmp.pop() );
         return max;
     }
     
-    int min()
+    T min()
     {
         tmp = new Stack();
-        int d;
-        int min = pop();
+        T d;
+        T min = pop();
         //tmp.push( min );
         push( min );
         
@@ -141,11 +141,12 @@ boolean search(int data)
         }
         
         while( !tmp.isEmpty() )
-            push( tmp.pop() );
+            push( (T)tmp.pop() );
         
         
         return min;
     }
+*/
     
 
     
